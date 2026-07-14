@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OnlineProductManagement
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+# CartLane_Online-Product-Management-System
+CartLane is a fullstack progressive web app which uses both admin management and customer browsing,built using angular,springboot,Mysql
+>>>>>>> f64c5dbd3e57c1d80a0cf2271a094fd863502eed
