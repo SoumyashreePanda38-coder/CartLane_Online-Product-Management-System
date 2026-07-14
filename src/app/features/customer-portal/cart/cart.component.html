@@ -1,0 +1,398 @@
+<div class="cart-page">
+
+    <!-- ========================= -->
+    <!-- Header -->
+    <!-- ========================= -->
+
+    <section class="cart-header">
+
+        <div>
+
+            <h1>
+                <i class="bi bi-cart3"></i>
+                My Shopping Cart
+            </h1>
+
+            <p>
+                Review your selected products before checkout.
+            </p>
+
+        </div>
+
+        <button class="continue-btn" (click)="continueShopping()">
+
+            <i class="bi bi-arrow-left"></i>
+            Continue Shopping
+
+        </button>
+
+    </section>
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- Loading -->
+    <!-- ========================= -->
+
+    <div class="loading" *ngIf="loading">
+
+        <div class="spinner-border text-warning"></div>
+
+        <h3>
+            Loading your cart...
+        </h3>
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- Empty Cart -->
+    <!-- ========================= -->
+
+    <div class="empty-cart" *ngIf="!loading && cartItems.length==0">
+
+        <i class="bi bi-cart-x"></i>
+
+        <h2>
+            Your Cart is Empty
+        </h2>
+
+        <p>
+            Looks like you haven't added anything yet.
+        </p>
+
+        <button class="shop-btn" (click)="continueShopping()">
+
+            Shop Now
+
+        </button>
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- Cart Content -->
+    <!-- ========================= -->
+
+    <div class="cart-content" *ngIf="!loading && cartItems.length>0">
+
+
+
+
+        <!-- ========================= -->
+        <!-- Left Side -->
+        <!-- ========================= -->
+
+        <div class="cart-card" *ngFor="let item of cartItems">
+
+            <!-- Product Image -->
+
+            <div class="product-image">
+
+                <img src="assets/images/no-image.png" alt="Product">
+
+            </div>
+
+            <!-- Product Details -->
+
+            <div class="product-details">
+
+                <span class="category">
+                    Product
+                </span>
+
+                <h2>{{item.productName}}</h2>
+
+                <p class="product-id">
+                    Product ID :
+                    {{item.productId}}
+                </p>
+
+                <div class="price-row">
+
+                    <span class="price">
+                        ₹{{item.price}}
+                    </span>
+
+                    <span class="qty">
+
+                        Qty :
+                        <strong>{{item.quantity}}</strong>
+
+                    </span>
+
+                </div>
+
+                <div class="subtotal">
+
+                    Total
+
+                    <span>
+
+                        ₹{{item.subTotal}}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Remove -->
+
+            <div class="action-section">
+
+                <button class="remove-btn" (click)="removeItem(item.id)">
+
+                    <i class="bi bi-trash3-fill"></i>
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+        <!-- ========================= -->
+        <!-- Right Side -->
+        <!-- ========================= -->
+
+        <div class="cart-summary">
+
+    <h2>
+
+        Order Summary
+
+    </h2>
+
+    <div class="summary-row">
+
+        <span>Total Items</span>
+
+        <strong>
+
+            {{cartItems.length}}
+
+        </strong>
+
+    </div>
+
+    <div class="summary-row">
+
+        <span>Subtotal</span>
+
+        <strong>
+
+            ₹{{cart.totalAmount}}
+
+        </strong>
+
+    </div>
+
+    <div class="summary-row">
+
+        <span>Delivery</span>
+
+        <strong class="free">
+
+            FREE
+
+        </strong>
+
+    </div>
+
+    <div class="summary-row">
+
+        <span>Discount</span>
+
+        <strong class="discount">
+
+            ₹0
+
+        </strong>
+
+    </div>
+
+    <hr>
+
+    <div class="summary-row grand-total">
+
+        <span>
+
+            Grand Total
+
+        </span>
+
+        <strong>
+
+            ₹{{cart.totalAmount}}
+
+        </strong>
+
+    </div>
+
+    <button
+
+        class="checkout-btn"
+
+        (click)="checkout()">
+
+        <i class="bi bi-credit-card-fill"></i>
+
+        Proceed To Checkout
+
+    </button>
+
+    <button
+
+        class="clear-btn"
+
+        (click)="clearCart()">
+
+        <i class="bi bi-trash-fill"></i>
+
+        Clear Cart
+
+    </button>
+
+    <div class="secure-box">
+
+        <i class="bi bi-shield-lock-fill"></i>
+
+        <div>
+
+            <h4>
+
+                Secure Checkout
+
+            </h4>
+
+            <p>
+
+                SSL Encrypted Payment
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="delivery-box">
+
+        <i class="bi bi-truck"></i>
+
+        <span>
+
+            Estimated Delivery
+
+        </span>
+
+        <strong>
+
+            2-4 Days
+
+        </strong>
+
+    </div>
+
+</div>
+
+    <!-- ========================= -->
+    <!-- Benefits -->
+    <!-- ========================= -->
+
+    <section class="benefits" *ngIf="!loading && cartItems.length>0">
+
+        <div class="benefit-card">
+
+            <i class="bi bi-truck"></i>
+
+            <h4>
+
+                Fast Delivery
+
+            </h4>
+
+            <p>
+
+                Quick doorstep delivery.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="benefit-card">
+
+            <i class="bi bi-arrow-repeat"></i>
+
+            <h4>
+
+                Easy Returns
+
+            </h4>
+
+            <p>
+
+                7-Day Return Policy.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="benefit-card">
+
+            <i class="bi bi-patch-check-fill"></i>
+
+            <h4>
+
+                Genuine Products
+
+            </h4>
+
+            <p>
+
+                100% Original Products.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="benefit-card">
+
+            <i class="bi bi-headset"></i>
+
+            <h4>
+
+                24×7 Support
+
+            </h4>
+
+            <p>
+
+                Dedicated customer assistance.
+
+            </p>
+
+        </div>
+
+    </section>
+
+</div>

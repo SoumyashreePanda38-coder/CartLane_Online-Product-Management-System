@@ -1,0 +1,429 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef3fb;
+}
+
+/*==========================
+LAYOUT
+===========================*/
+
+.dashboard-layout{
+
+    display:flex;
+    min-height:100vh;
+    background:#eef3fb;
+
+}
+
+/* right section */
+
+.dashboard-content{
+
+    margin-left:270px;
+    width:calc(100% - 270px);
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+/* body */
+
+.dashboard-body{
+
+    padding:30px;
+}
+
+/*==========================
+WELCOME
+===========================*/
+
+.welcome-card{
+
+    background:linear-gradient(135deg,#2563eb,#ff7a18);
+
+    color:white;
+
+    border-radius:25px;
+
+    padding:40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+}
+
+.welcome-card h1{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+.welcome-card p{
+
+    width:650px;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+}
+
+.welcome-card button{
+
+    border:none;
+
+    background:white;
+
+    color:#2563eb;
+
+    padding:18px 35px;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.welcome-card button:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/*==========================
+CARDS
+===========================*/
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+}
+
+.icon{
+
+    width:75px;
+
+    height:75px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:30px;
+
+}
+
+.products .icon{
+
+    background:#2563eb;
+
+}
+
+.customers .icon{
+
+    background:#ff7a18;
+
+}
+
+.orders .icon{
+
+    background:#10b981;
+
+}
+
+.revenue .icon{
+
+    background:#7c3aed;
+
+}
+
+.card h5{
+
+    color:#777;
+
+    margin-bottom:8px;
+
+}
+
+.card h2{
+
+    font-size:38px;
+
+    color:#222;
+
+}
+
+.card small{
+
+    color:#888;
+
+}
+
+/*==========================
+QUICK ACTIONS
+===========================*/
+
+.quick-actions{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.quick-actions h2{
+
+    margin-bottom:25px;
+
+}
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+
+}
+
+.quick-grid a{
+
+    text-decoration:none;
+
+    background:#f7f9fd;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    color:#333;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.quick-grid a:hover{
+
+    background:linear-gradient(135deg,#2563eb,#ff7a18);
+
+    color:white;
+
+    transform:translateY(-6px);
+
+}
+
+.quick-grid i{
+
+    font-size:32px;
+
+}
+
+/*==========================
+SUMMARY
+===========================*/
+
+.summary{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.summary h2{
+
+    margin-bottom:25px;
+
+}
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.summary-box{
+
+    background:#f7f9fd;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+}
+
+.summary-box h4{
+
+    color:#777;
+
+    margin-bottom:15px;
+
+}
+
+.summary-box p{
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:#2563eb;
+
+}
+
+/*==========================
+RESPONSIVE
+===========================*/
+
+@media(max-width:992px){
+
+.dashboard-content{
+
+    margin-left:0;
+
+    width:100%;
+
+}
+
+.welcome-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    gap:25px;
+
+}
+
+.welcome-card p{
+
+    width:100%;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.dashboard-body{
+
+    padding:20px;
+
+}
+
+.welcome-card{
+
+    padding:30px;
+
+}
+
+.welcome-card h1{
+
+    font-size:30px;
+
+}
+
+.card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.welcome-card button{
+
+    width:100%;
+
+}
+
+.summary-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}

@@ -1,0 +1,575 @@
+/* ===============================
+   GOOGLE FONTS
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+
+.auth-container{
+
+    min-height:100vh;
+
+    width:100%;
+
+    display:flex;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2e1065,
+        #6d28d9,
+        #ea580c
+    );
+
+}
+
+
+
+
+
+/* ===============================
+        LEFT SECTION
+================================ */
+
+
+.left-panel{
+
+    width:48%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:70px;
+
+    color:white;
+
+}
+
+
+
+.overlay{
+
+    max-width:520px;
+
+}
+
+
+
+
+/* CARTLANE BRAND */
+
+
+.overlay h1:first-child{
+
+
+    font-family:'Montserrat',sans-serif;
+
+
+    font-size:72px;
+
+
+    font-weight:900;
+
+
+    letter-spacing:2px;
+
+
+    color:white;
+
+
+    text-shadow:
+
+    0 5px 20px rgba(0,0,0,.35);
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+/* TAGLINE */
+
+
+.overlay h1:nth-child(2){
+
+
+    font-family:'Poppins',sans-serif;
+
+
+    font-size:32px;
+
+
+    font-weight:700;
+
+
+    line-height:45px;
+
+
+    color:#ffffff;
+
+
+}
+
+
+
+
+
+.overlay p{
+
+
+    margin-top:25px;
+
+
+    font-size:17px;
+
+
+    line-height:30px;
+
+
+    color:#f3f4f6;
+
+
+}
+
+
+
+
+
+/* FEATURES */
+
+
+.features{
+
+
+    margin-top:45px;
+
+
+}
+
+
+
+.feature{
+
+
+    padding:16px 22px;
+
+
+    margin-bottom:15px;
+
+
+    border-radius:14px;
+
+
+    background:
+
+    rgba(255,255,255,.13);
+
+
+    backdrop-filter:blur(12px);
+
+
+    font-size:16px;
+
+
+    font-weight:500;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.feature:hover{
+
+
+    transform:translateX(10px);
+
+
+    background:
+
+    rgba(255,255,255,.25);
+
+
+}
+
+
+
+
+
+/* ===============================
+        RIGHT SECTION
+================================ */
+
+
+.right-panel{
+
+
+    width:52%;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    padding:30px;
+
+
+}
+
+
+
+
+
+.auth-card{
+
+
+    width:470px;
+
+
+    padding:45px;
+
+
+    border-radius:28px;
+
+
+    background:
+
+    rgba(255,255,255,.15);
+
+
+    backdrop-filter:blur(25px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.25);
+
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.35);
+
+
+}
+
+
+
+
+
+.auth-card h2{
+
+
+    text-align:center;
+
+
+    font-size:34px;
+
+
+    font-weight:700;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.auth-card p{
+
+
+    text-align:center;
+
+
+    color:#e5e7eb;
+
+
+    margin:10px 0 30px;
+
+
+}
+
+
+
+
+
+/* TABS */
+
+
+.tabs{
+
+
+    display:flex;
+
+
+    background:white;
+
+
+    border-radius:50px;
+
+
+    overflow:hidden;
+
+
+    margin-bottom:35px;
+
+
+}
+
+
+
+
+.tabs button{
+
+
+    flex:1;
+
+
+    padding:15px;
+
+
+    border:none;
+
+
+    background:white;
+
+
+    cursor:pointer;
+
+
+    font-size:16px;
+
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+.tabs button.active{
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #f97316,
+        #7c3aed
+    );
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.form-area{
+
+
+    animation:fade .5s ease;
+
+
+}
+
+
+
+
+@keyframes fade{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+
+}
+
+
+
+
+
+/* ===============================
+        RESPONSIVE
+================================ */
+
+
+@media(max-width:1000px){
+
+
+.auth-container{
+
+    flex-direction:column;
+
+}
+
+
+
+.left-panel{
+
+
+    width:100%;
+
+
+    padding:40px 30px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+.overlay h1:first-child{
+
+
+    font-size:55px;
+
+
+}
+
+
+
+.overlay h1:nth-child(2){
+
+
+    font-size:28px;
+
+
+}
+
+
+
+.right-panel{
+
+
+    width:100%;
+
+
+}
+
+
+
+.features{
+
+
+    display:grid;
+
+
+    grid-template-columns:repeat(2,1fr);
+
+
+}
+
+
+}
+
+
+
+
+
+@media(max-width:600px){
+
+
+.left-panel{
+
+
+    padding:30px 20px;
+
+
+}
+
+
+
+.overlay h1:first-child{
+
+
+    font-size:42px;
+
+
+}
+
+
+
+.overlay h1:nth-child(2){
+
+
+    font-size:23px;
+
+
+    line-height:32px;
+
+
+}
+
+
+
+.features{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+.auth-card{
+
+
+    width:100%;
+
+
+    padding:30px 20px;
+
+
+}
+
+
+
+}

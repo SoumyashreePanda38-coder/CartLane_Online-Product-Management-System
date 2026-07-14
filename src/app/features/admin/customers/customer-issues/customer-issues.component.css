@@ -1,0 +1,285 @@
+/* ===================================
+   Customer Issues Management
+=================================== */
+
+.issues-container {
+
+    padding: 30px;
+
+    background: #f5f7fb;
+
+    min-height: 100vh;
+
+}
+
+/* ===================================
+   Header
+=================================== */
+
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+.page-header h2 {
+
+    margin: 0;
+
+    color: #2c3e50;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+}
+
+.page-header p {
+
+    margin-top: 5px;
+
+    color: #7f8c8d;
+
+    font-size: 15px;
+
+}
+
+/* ===================================
+   Back Button
+=================================== */
+
+.back-btn {
+
+    background: #34495e;
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    font-size: 14px;
+
+}
+
+.back-btn:hover {
+
+    background: #2c3e50;
+
+}
+
+/* ===================================
+   Table Card
+=================================== */
+
+.table-card {
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+
+    overflow-x: auto;
+
+}
+
+/* ===================================
+   Table
+=================================== */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+thead {
+
+    background: #3498db;
+
+    color: white;
+
+}
+
+thead th {
+
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+tbody td {
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+
+}
+
+tbody tr:hover {
+
+    background: #f8f9fa;
+
+}
+
+/* ===================================
+   Status Badge
+=================================== */
+
+.status-badge {
+
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+}
+
+.open {
+
+    background: #f39c12;
+
+}
+
+.resolved {
+
+    background: #27ae60;
+
+}
+
+.closed {
+
+    background: #e74c3c;
+
+}
+
+/* ===================================
+   Reply Button
+=================================== */
+
+.reply-btn {
+
+    background: #3498db;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 16px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    font-size: 13px;
+
+}
+
+.reply-btn:hover {
+
+    background: #2980b9;
+
+}
+
+/* ===================================
+   Loading
+=================================== */
+
+.loading-card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #555;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+}
+
+/* ===================================
+   No Data
+=================================== */
+
+.text-center {
+
+    text-align: center;
+
+    color: #777;
+
+    padding: 25px;
+
+    font-size: 15px;
+
+}
+
+/* ===================================
+   Responsive
+=================================== */
+
+@media screen and (max-width: 768px) {
+
+    .issues-container {
+
+        padding: 15px;
+
+    }
+
+    .page-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+    table {
+
+        min-width: 900px;
+
+    }
+
+}

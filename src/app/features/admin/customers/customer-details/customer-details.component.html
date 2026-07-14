@@ -1,0 +1,171 @@
+<div class="customer-details-container">
+
+    <!-- Header -->
+    <div class="page-header">
+
+        <div>
+            <h2>Customer Details</h2>
+            <p>View complete customer information.</p>
+        </div>
+
+        <button class="back-btn" (click)="goBack()">
+            ← Back
+        </button>
+
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="loading-card">
+
+        Loading Customer Details...
+
+    </div>
+
+    <!-- Customer Details -->
+    <div *ngIf="!loading && customer">
+
+        <!-- Personal Information -->
+        <div class="card">
+
+            <div class="card-header">
+
+                <h3>Personal Information</h3>
+
+            </div>
+
+            <div class="details-grid">
+
+                <div class="detail-box">
+                    <label>Customer ID</label>
+                    <span>{{ customer.customerId }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>User ID</label>
+                    <span>{{ customer.userId }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>Full Name</label>
+                    <span>{{ customer.fullName }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>Username</label>
+                    <span>{{ customer.username }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>Email</label>
+                    <span>{{ customer.email }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>Phone Number</label>
+                    <span>{{ customer.phoneNumber }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>Address</label>
+                    <span>{{ customer.address }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>City</label>
+                    <span>{{ customer.city }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>State</label>
+                    <span>{{ customer.state }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>Pincode</label>
+                    <span>{{ customer.pincode }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>Registered On</label>
+                    <span>{{ customer.createdAt | date:'dd-MM-yyyy hh:mm a' }}</span>
+                </div>
+
+                <div class="detail-box">
+                    <label>Last Updated</label>
+                    <span>{{ customer.updatedAt | date:'dd-MM-yyyy hh:mm a' }}</span>
+                </div>
+
+                <div class="detail-box">
+
+                    <label>Status</label>
+
+                    <span
+                        class="status-badge"
+                        [ngClass]="{
+                            'active': customer.status === 'ACTIVE',
+                            'inactive': customer.status === 'INACTIVE'
+                        }">
+
+                        {{ customer.status }}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Order History -->
+        <div class="card">
+
+            <div class="card-header">
+
+                <h3>Order History</h3>
+
+            </div>
+
+            <p class="section-text">
+
+                View all orders placed by this customer.
+
+            </p>
+
+            <button
+                class="action-btn"
+                (click)="viewOrders()">
+
+                View Order History
+
+            </button>
+
+        </div>
+
+        <!-- Customer Issues -->
+        <div class="card">
+
+            <div class="card-header">
+
+                <h3>Customer Issues</h3>
+
+            </div>
+
+            <p class="section-text">
+
+                View customer complaints and reply to issues.
+
+            </p>
+
+            <button
+                class="action-btn"
+                (click)="viewIssues()">
+
+                View Customer Issues
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

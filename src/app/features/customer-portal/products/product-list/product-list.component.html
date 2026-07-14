@@ -1,0 +1,135 @@
+<div class="product-page">
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+
+        <div class="hero-text">
+
+            <span class="premium-tag">
+                ✨ Premium Collection
+            </span>
+
+            <h1>Discover Amazing Products</h1>
+
+            <p>
+                Explore the latest gadgets, electronics and premium products
+                with the best offers and fastest delivery.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Search -->
+    <div class="search-section">
+
+        <input
+                type="text"
+                placeholder="Search products..."
+                [(ngModel)]="searchText">
+
+    </div>
+
+    <!-- Loading -->
+
+    <div class="loading" *ngIf="loading">
+
+        <div class="loader"></div>
+
+        <p>Loading Products...</p>
+
+    </div>
+
+    <!-- Empty -->
+
+    <div class="empty" *ngIf="!loading && filteredProducts.length==0">
+
+        <h2>No Products Found</h2>
+
+    </div>
+
+    <!-- Product Grid -->
+
+    <div class="product-grid" *ngIf="!loading">
+
+        <div
+                class="product-card"
+                *ngFor="let product of filteredProducts">
+
+            <div class="discount-badge">
+                NEW
+            </div>
+
+            <div class="product-image">
+
+                <img
+                        *ngIf="product.imageUrl"
+                        [src]="product.imageUrl">
+
+                <img
+                        *ngIf="!product.imageUrl"
+                        src="assets/images/no-image.png">
+
+            </div>
+
+            <div class="product-content">
+
+                <span class="category">
+
+                    {{product.categoryName}}
+
+                </span>
+
+                <h2>
+
+                    {{product.productName}}
+
+                </h2>
+
+                <p class="description">
+
+                    {{product.description}}
+
+                </p>
+
+                <div class="price-row">
+
+                    <h3>
+
+                        ₹{{product.price}}
+
+                    </h3>
+
+                    <span>
+
+                        GST {{product.gst}}%
+
+                    </span>
+
+                </div>
+
+                <div class="stock-row">
+
+                    <span class="stock">
+
+                        {{product.quantity}} In Stock
+
+                    </span>
+
+                </div>
+
+                <button
+                        class="cart-btn"
+                        (click)="addToCart(product)">
+
+                    🛒 Add To Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

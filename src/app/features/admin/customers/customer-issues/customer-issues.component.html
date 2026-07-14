@@ -1,0 +1,127 @@
+<div class="issues-container">
+
+    <!-- Header -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>Customer Issues</h2>
+
+            <p>View all issues raised by this customer.</p>
+
+        </div>
+
+        <button
+            class="back-btn"
+            (click)="goBack()">
+
+            Back
+
+        </button>
+
+    </div>
+
+    <!-- Loading -->
+
+    <div
+        class="loading-card"
+        *ngIf="loading">
+
+        Loading Customer Issues...
+
+    </div>
+
+    <!-- Table -->
+
+    <div
+        class="table-card"
+        *ngIf="!loading">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Issue ID</th>
+
+                    <th>Raised Date</th>
+
+                    <th>Subject</th>
+
+                    <th>Description</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngIf="issues.length === 0">
+
+                    <td
+                        colspan="6"
+                        class="text-center">
+
+                        No Issues Found
+
+                    </td>
+
+                </tr>
+
+                <tr *ngFor="let issue of issues">
+
+                    <td>{{issue.issueId}}</td>
+
+                    <td>{{issue.raisedDate | date:'dd-MM-yyyy'}}</td>
+
+                    <td>{{issue.subject}}</td>
+
+                    <td>{{issue.description}}</td>
+
+                    <td>
+
+                        <span
+                            class="status-badge"
+                            [ngClass]="{
+
+                            'open': issue.status==='OPEN',
+
+                            'resolved': issue.status==='RESOLVED',
+
+                            'closed': issue.status==='CLOSED'
+
+                        }">
+
+                            {{issue.status}}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            class="reply-btn"
+                            (click)="replyIssue(issue.issueId)">
+
+                            Reply
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

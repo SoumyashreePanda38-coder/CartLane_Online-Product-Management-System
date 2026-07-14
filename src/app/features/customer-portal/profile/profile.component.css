@@ -1,0 +1,551 @@
+/* =========================================
+   PROFILE PAGE
+========================================= */
+
+.profile-page{
+    max-width:1200px;
+    margin:30px auto;
+    padding:20px;
+}
+
+/* =========================================
+   PROFILE HEADER
+========================================= */
+
+.profile-header{
+
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    background:linear-gradient(135deg,#ff8c00,#5b3df5);
+
+    color:#fff;
+
+    margin-bottom:30px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.15);
+
+}
+
+.profile-image{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:5px solid rgba(255,255,255,.3);
+
+    background:#fff;
+
+}
+
+.profile-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.profile-details h2{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.profile-details p{
+
+    opacity:.9;
+
+    margin-bottom:14px;
+
+}
+
+.customer-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#fff;
+
+    color:#5b3df5;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+}
+
+/* =========================================
+   PROFILE CARD
+========================================= */
+
+.profile-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    border:1px solid #f2f2f2;
+
+}
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.card-header h3{
+
+    font-size:22px;
+
+    color:#ff8800;
+
+    font-weight:700;
+
+}
+
+.card-header i{
+
+    color:#5b3df5;
+
+    margin-right:8px;
+
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.edit-btn{
+
+    background:linear-gradient(135deg,#ff9800,#ff6a00);
+
+    border:none;
+
+    color:white;
+
+    padding:10px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.edit-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(255,140,0,.3);
+
+}
+
+.password-btn{
+
+    margin-top:25px;
+
+    background:#5b3df5;
+
+    color:#fff;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.password-btn:hover{
+
+    background:#4428d8;
+
+}
+
+.logout-section{
+
+    text-align:center;
+
+    margin-top:40px;
+
+}
+
+.logout-btn{
+
+    background:#ef4444;
+
+    color:#fff;
+
+    border:none;
+
+    padding:15px 40px;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.logout-btn:hover{
+
+    background:#d62828;
+
+    transform:translateY(-2px);
+
+}
+
+/* =========================================
+   INFO GRID
+========================================= */
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+}
+
+.info-item{
+
+    background:#fafafa;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    border-left:5px solid #ff9800;
+
+}
+
+.info-item label{
+
+    color:#777;
+
+    display:block;
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+}
+
+.info-item p{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#333;
+
+}
+
+/* =========================================
+   ADDRESS
+========================================= */
+
+.address-box{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    background:#fafafa;
+
+    border-left:5px solid #5b3df5;
+
+    padding:22px;
+
+    border-radius:12px;
+
+}
+
+.address-box i{
+
+    font-size:28px;
+
+    color:#ff8800;
+
+}
+
+.address-box p{
+
+    font-size:16px;
+
+    color:#444;
+
+    line-height:1.6;
+
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal-overlay{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.55);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.modal-box{
+
+    width:550px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    animation:popup .3s ease;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.9);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.modal-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 30px;
+
+    background:linear-gradient(135deg,#ff9800,#5b3df5);
+
+    color:#fff;
+
+}
+
+.close-btn{
+
+    border:none;
+
+    background:none;
+
+    color:#fff;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+.modal-body{
+
+    padding:30px;
+
+}
+
+.form-group{
+
+    margin-bottom:22px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.form-group input,
+.form-group textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+
+    border-color:#5b3df5;
+
+    outline:none;
+
+    box-shadow:0 0 10px rgba(91,61,245,.15);
+
+}
+
+.modal-footer{
+
+    padding:20px 30px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    background:#fafafa;
+
+}
+
+.save-btn{
+
+    background:linear-gradient(135deg,#5b3df5,#7c5cff);
+
+    color:#fff;
+
+    border:none;
+
+    padding:12px 28px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.save-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(91,61,245,.25);
+
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+.profile-header{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.card-header{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    align-items:flex-start;
+
+}
+
+.modal-box{
+
+    width:95%;
+
+}
+
+.info-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}

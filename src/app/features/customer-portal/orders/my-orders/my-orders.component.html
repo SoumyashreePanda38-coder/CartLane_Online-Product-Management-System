@@ -1,0 +1,250 @@
+<div class="orders-page">
+
+    <!-- ===================================== -->
+    <!-- Header -->
+    <!-- ===================================== -->
+
+    <section class="orders-header">
+
+        <div>
+
+            <h1>
+                <i class="bi bi-bag-check-fill"></i>
+                My Orders
+            </h1>
+
+            <p>
+                View your order history, order details and track your deliveries.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================================== -->
+    <!-- Loading -->
+    <!-- ===================================== -->
+
+    <div
+        class="loading"
+        *ngIf="loading">
+
+        <div class="spinner-border text-warning"></div>
+
+        <h3>Loading Orders...</h3>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- Empty Orders -->
+    <!-- ===================================== -->
+
+    <div
+        class="empty-orders"
+        *ngIf="!loading && customerOrders.length==0">
+
+        <i class="bi bi-bag-x-fill"></i>
+
+        <h2>No Orders Yet</h2>
+
+        <p>
+            Looks like you haven't placed any order yet.
+        </p>
+
+        <button
+            class="shop-btn"
+            routerLink="/customer/products">
+
+            Start Shopping
+
+        </button>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- Orders -->
+    <!-- ===================================== -->
+
+    <div
+        class="orders-container"
+        *ngIf="!loading && customerOrders.length>0">
+
+        <div
+            class="order-card"
+            *ngFor="let customerOrder of customerOrders">
+
+            <!-- ================================= -->
+            <!-- Order Header -->
+            <!-- ================================= -->
+
+            <div class="order-top">
+
+                <div>
+
+                    <h3>
+
+                        Order #{{customerOrder.order.orderId}}
+
+                    </h3>
+
+                    <p>
+
+                        Ordered on
+
+                        {{customerOrder.order.orderDate | date:'mediumDate'}}
+
+                    </p>
+
+                </div>
+
+                <div
+                    class="status-badge"
+                    [ngClass]="customerOrder.order.status">
+
+                    {{customerOrder.order.status}}
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- Order Body -->
+            <!-- ================================= -->
+
+            <div class="order-body">
+
+                <div class="order-info">
+
+                    <h4>Order Total</h4>
+
+                    <h2>
+
+                        ₹{{customerOrder.order.totalAmount}}
+
+                    </h2>
+
+                    <p>
+
+                        Payment :
+
+                        <strong>
+
+                            {{customerOrder.order.paymentMethod}}
+
+                        </strong>
+
+                    </p>
+
+                    <p>
+
+                        Delivery Address
+
+                    </p>
+
+                    <p class="address">
+
+                        {{customerOrder.order.deliveryAddress}}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- Ordered Products -->
+            <!-- ================================= -->
+
+            <div class="products-section">
+
+                <h3>
+
+                    <i class="bi bi-box-seam"></i>
+
+                    Ordered Products
+
+                </h3>
+
+                <div
+                    class="product-item"
+                    *ngFor="let item of customerOrder.items">
+
+                    <div class="product-left">
+
+                        <img
+                            src="assets/images/product-placeholder.png"
+                            alt="Product">
+
+                        <div class="product-details">
+
+                            <h4>
+
+                                {{item.productName}}
+
+                            </h4>
+
+                            <p>
+
+                                Quantity : {{item.quantity}}
+
+                            </p>
+
+                            <p>
+
+                                Unit Price : ₹{{item.unitPrice}}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="product-price">
+
+                        ₹{{item.totalPrice}}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- Footer -->
+            <!-- ================================= -->
+
+            <div class="order-footer">
+
+                <button
+                    class="details-btn"
+                    [routerLink]="['/customer/order-details', customerOrder.order.orderId]">
+
+                    <i class="bi bi-eye-fill"></i>
+
+                    View Details
+
+                </button>
+
+                <button
+                    class="track-btn"
+                    [routerLink]="['/customer/track-order', customerOrder.order.orderId]">
+
+                    <i class="bi bi-truck"></i>
+
+                    Track Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,537 @@
+/* =====================================
+        LOGIN FORM
+===================================== */
+
+.login-form{
+
+    width:100%;
+
+    animation:slideUp .5s ease;
+
+}
+
+
+
+
+/* Animation */
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+/* TITLE */
+
+.title{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    margin-bottom:8px;
+
+}
+
+
+
+
+.subtitle{
+
+    text-align:center;
+
+    color:#e5e7eb;
+
+    font-size:15px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+
+
+
+/* INPUT GROUP */
+
+.input-group{
+
+    margin-bottom:24px;
+
+}
+
+
+
+
+.input-group label{
+
+    display:block;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+/* INPUT BOX */
+
+
+.input-box{
+
+
+    height:55px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    padding:0 18px;
+
+
+    border-radius:16px;
+
+
+
+    background:
+
+    rgba(255,255,255,.12);
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.2);
+
+
+
+    backdrop-filter:blur(10px);
+
+
+
+    transition:.35s;
+
+
+}
+
+
+
+
+
+.input-box i{
+
+
+    font-size:20px;
+
+
+    color:#ffd6a5;
+
+
+    margin-right:12px;
+
+
+}
+
+
+
+
+.input-box input{
+
+
+    width:100%;
+
+
+    border:none;
+
+
+    outline:none;
+
+
+    background:transparent;
+
+
+    color:white;
+
+
+    font-size:15px;
+
+
+    font-weight:400;
+
+
+}
+
+
+
+.input-box input::placeholder{
+
+
+    color:#d1d5db;
+
+
+}
+
+
+
+
+/* INPUT HOVER */
+
+.input-box:hover{
+
+
+    border-color:#fb923c;
+
+
+}
+
+
+
+
+
+/* INPUT FOCUS */
+
+
+.input-box:focus-within{
+
+
+    border-color:#a855f7;
+
+
+    box-shadow:
+
+    0 0 20px rgba(168,85,247,.45);
+
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+
+/* FORGOT PASSWORD */
+
+
+.forgot{
+
+
+    text-align:right;
+
+
+    margin:5px 0 30px;
+
+
+}
+
+
+
+
+.forgot a{
+
+
+    color:#fed7aa;
+
+
+    text-decoration:none;
+
+
+    font-size:14px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.forgot a:hover{
+
+
+    color:white;
+
+
+    text-decoration:underline;
+
+
+}
+
+
+
+
+
+
+/* LOGIN BUTTON */
+
+
+.login-btn{
+
+
+    width:100%;
+
+
+    height:55px;
+
+
+    border:none;
+
+
+    border-radius:50px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #f97316,
+
+        #7c3aed
+
+    );
+
+
+
+    color:white;
+
+
+
+    font-size:17px;
+
+
+
+    font-weight:600;
+
+
+
+    cursor:pointer;
+
+
+
+    letter-spacing:.3px;
+
+
+
+    transition:.35s;
+
+
+
+    position:relative;
+
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+.login-btn::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:0;
+
+
+    height:100%;
+
+
+    top:0;
+
+
+    left:0;
+
+
+    background:
+
+    rgba(255,255,255,.2);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+
+.login-btn:hover::before{
+
+
+    width:100%;
+
+
+}
+
+
+
+
+.login-btn:hover{
+
+
+    transform:translateY(-4px);
+
+
+    box-shadow:
+
+
+    0 15px 35px rgba(124,58,237,.45);
+
+
+}
+
+
+
+
+.login-btn:active{
+
+
+    transform:scale(.98);
+
+
+}
+
+
+
+
+.login-btn:disabled{
+
+
+    opacity:.6;
+
+
+    cursor:not-allowed;
+
+
+}
+
+
+
+
+
+/* VALIDATION ERROR */
+
+
+.error{
+
+
+    color:#fecaca;
+
+
+    font-size:12px;
+
+
+    margin-top:7px;
+
+
+    padding-left:5px;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+          MOBILE RESPONSIVE
+===================================== */
+
+
+@media(max-width:600px){
+
+
+.title{
+
+
+    font-size:28px;
+
+
+}
+
+
+
+.subtitle{
+
+
+    font-size:14px;
+
+
+}
+
+
+
+.input-box{
+
+
+    height:52px;
+
+
+}
+
+
+
+.login-btn{
+
+
+    height:52px;
+
+
+    font-size:16px;
+
+
+}
+
+
+}

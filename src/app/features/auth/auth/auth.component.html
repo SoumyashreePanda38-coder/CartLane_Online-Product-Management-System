@@ -1,0 +1,85 @@
+<div class="auth-container">
+
+    <!-- Left Section -->
+
+    <div class="left-panel">
+
+        <div class="overlay">
+
+            <h1>CartLane</h1>
+            <h2>Your Digital Shopping Destination, Just One Lane Away!</h2>
+
+            <p>
+                Manage your products efficiently with a secure,
+                modern and user-friendly platform.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    📦 Product Management
+                </div>
+
+                <div class="feature">
+                    📈 Sales Analytics
+                </div>
+
+                <div class="feature">
+                    🔒 Secure Authentication
+                </div>
+
+                <div class="feature">
+                    🚀 Fast & Responsive
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Right Section -->
+
+    <div class="right-panel">
+
+        <div class="auth-card">
+
+            <h2>Welcome</h2>
+
+            <p>
+                Please login or create a new account
+            </p>
+
+            <div class="tabs">
+
+                <button
+                [class.active]="isLogin"
+                (click)="showLogin()">
+
+                    Login
+
+                </button>
+
+                <button
+                [class.active]="!isLogin"
+                (click)="showRegister()">
+
+                    Register
+
+                </button>
+
+            </div>
+
+            <div class="form-area">
+
+                <app-login *ngIf="isLogin"></app-login>
+
+                <app-register *ngIf="!isLogin"></app-register>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

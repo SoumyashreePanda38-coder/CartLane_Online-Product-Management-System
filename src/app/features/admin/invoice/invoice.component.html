@@ -1,0 +1,158 @@
+<div class="invoice-container">
+
+    <!-- Header -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>Invoice Management</h2>
+
+            <p>Generate and manage customer invoices</p>
+
+        </div>
+
+    </div>
+
+    <!-- Search Card -->
+
+    <div class="card search-card">
+
+        <h3>Search Invoice</h3>
+
+        <div class="search-box">
+
+            <input
+                type="number"
+                placeholder="Enter Order ID"
+                [(ngModel)]="orderId">
+
+            <button
+                class="btn btn-primary"
+                (click)="loadInvoice()">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Invoice Card -->
+
+    <div
+        class="card invoice-card"
+        *ngIf="invoice">
+
+        <div class="invoice-header">
+
+            <div>
+
+                <h3>ONLINE PRODUCT MANAGEMENT SYSTEM</h3>
+
+                <p>Official Invoice</p>
+
+            </div>
+
+            <div class="invoice-no">
+
+                <h4>{{invoice.invoiceNumber}}</h4>
+
+                <p>{{invoice.createdAt | date:'dd MMM yyyy'}}</p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="invoice-details">
+
+            <div>
+
+                <label>Invoice ID</label>
+
+                <span>{{invoice.invoiceId}}</span>
+
+            </div>
+
+            <div>
+
+                <label>Order ID</label>
+
+                <span>{{invoice.orderId}}</span>
+
+            </div>
+
+            <div>
+
+                <label>Amount</label>
+
+                <span>₹ {{invoice.amount}}</span>
+
+            </div>
+
+            <div>
+
+                <label>Issued At</label>
+
+                <span>{{invoice.issuedAt | date:'dd MMM yyyy, hh:mm a'}}</span>
+
+            </div>
+
+        </div>
+
+        <div class="action-buttons">
+
+            <button
+                class="btn btn-success"
+                (click)="downloadPdf()">
+
+                <i class="fa-solid fa-file-pdf"></i>
+
+                Download PDF
+
+            </button>
+
+            <button
+                class="btn btn-info"
+                (click)="exportExcel()">
+
+                <i class="fa-solid fa-file-excel"></i>
+
+                Export Excel
+
+            </button>
+
+            <button
+                class="btn btn-danger"
+                (click)="deleteInvoice(invoice.invoiceId)">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- No Data -->
+
+    <div
+        class="card empty-card"
+        *ngIf="!invoice">
+
+        <i class="fa-solid fa-file-invoice"></i>
+
+        <h3>No Invoice Loaded</h3>
+
+        <p>Search an Order ID to view invoice.</p>
+
+    </div>
+
+</div>

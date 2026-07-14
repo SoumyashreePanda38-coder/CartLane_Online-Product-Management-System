@@ -1,0 +1,362 @@
+/* ===========================
+   Global
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:270px;
+    height:100vh;
+
+    background:linear-gradient(180deg,#6A11CB 0%,#8E2DE2 45%,#FF6A00 100%);
+
+    display:flex;
+    flex-direction:column;
+
+    color:#fff;
+
+    box-shadow:10px 0 35px rgba(0,0,0,.18);
+
+    overflow:hidden;
+
+    z-index:1000;
+
+}
+
+/* Scroll */
+
+.sidebar::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,.25);
+    border-radius:20px;
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:16px;
+
+    padding:28px 22px;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.logo-icon{
+
+    width:60px;
+    height:60px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
+
+.logo-text h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+.logo-text span{
+
+    font-size:13px;
+
+    opacity:.85;
+
+    display:block;
+
+    margin-top:3px;
+
+}
+
+/* ===========================
+   Menu
+=========================== */
+
+.menu{
+
+    list-style:none;
+
+    flex:1;
+
+    padding:22px 16px;
+
+    overflow-y:auto;
+
+}
+
+.menu li{
+
+    margin-bottom:10px;
+
+}
+
+.menu li a{
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:15px 18px;
+
+    color:#fff;
+
+    border-radius:14px;
+
+    transition:.35s;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.menu li a i{
+
+    font-size:20px;
+
+    width:24px;
+
+    text-align:center;
+
+}
+
+/* Hover */
+
+.menu li:hover a{
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    transform:translateX(8px);
+
+}
+
+/* Active */
+
+.menu li.active a{
+
+    background:#fff;
+
+    color:#6A11CB;
+
+    font-weight:600;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+}
+
+.menu li.active a i{
+
+    color:#FF6A00;
+
+}
+
+/* ===========================
+   Logout
+=========================== */
+
+.logout{
+
+    padding:22px;
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+}
+
+.logout a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.15);
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.logout a:hover{
+
+    background:#fff;
+
+    color:#FF6A00;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+.sidebar{
+
+    width:90px;
+
+}
+
+.logo{
+
+    justify-content:center;
+
+    padding:25px 10px;
+
+}
+
+.logo-text{
+
+    display:none;
+
+}
+
+.menu{
+
+    padding:20px 10px;
+
+}
+
+.menu li a{
+
+    justify-content:center;
+
+    padding:15px;
+
+}
+
+.menu li a span{
+
+    display:none;
+
+}
+
+.logout{
+
+    padding:15px;
+
+}
+
+.logout a{
+
+    justify-content:center;
+
+}
+
+.logout a span{
+
+    display:none;
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.sidebar{
+
+    width:70px;
+
+}
+
+.logo-icon{
+
+    width:50px;
+    height:50px;
+
+    font-size:24px;
+
+}
+
+.menu li a{
+
+    padding:14px;
+
+}
+
+.menu li a i{
+
+    font-size:22px;
+
+}
+
+.logout{
+
+    padding:10px;
+
+}
+
+.logout a{
+
+    padding:12px;
+
+}
+
+}

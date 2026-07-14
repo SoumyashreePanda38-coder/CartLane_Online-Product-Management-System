@@ -1,0 +1,111 @@
+<div class="history-container">
+
+    <!-- Header -->
+    <div class="page-header">
+
+        <div>
+            <h2>Stock History</h2>
+            <p>View inventory movement history</p>
+        </div>
+
+        <button
+            class="btn-back"
+            routerLink="/admin/stocks">
+
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+
+        </button>
+
+    </div>
+
+    <!-- Loading -->
+
+    <div
+        class="loading"
+        *ngIf="loading">
+
+        Loading stock history...
+
+    </div>
+
+    <!-- Table -->
+
+    <div
+        class="table-container"
+        *ngIf="!loading">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>History ID</th>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                    <th>Action Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let history of historyList">
+
+                    <td>{{ history.historyId }}</td>
+
+                    <td>{{ history.id }}</td>
+
+                    <td>{{ history.productName }}</td>
+
+                    <td>{{ history.quantityChanged }}</td>
+
+                    <td>
+
+                        <span
+                            class="badge"
+                            [ngClass]="{
+
+                            'stock-in': history.action === 'STOCK_IN',
+
+                            'stock-out': history.action === 'STOCK_OUT',
+
+                            'update': history.action === 'UPDATE'
+
+                        }">
+
+                            {{ history.action }}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        {{ history.actionDate | date:'dd MMM yyyy, hh:mm a' }}
+
+                    </td>
+
+                </tr>
+
+                <tr *ngIf="historyList.length === 0">
+
+                    <td colspan="6" class="no-data">
+
+                        No Stock History Available
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

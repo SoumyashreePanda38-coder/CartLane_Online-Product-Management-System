@@ -1,0 +1,84 @@
+<form class="login-form" (ngSubmit)="login()" #loginForm="ngForm">
+
+    <h2 class="title">Welcome Back 👋</h2>
+
+    <p class="subtitle">
+        Login to your account
+    </p>
+
+    <!-- Username -->
+
+    <div class="input-group">
+
+        <label>Username</label>
+
+        <div class="input-box">
+
+            <i class="bi bi-person-fill"></i>
+
+            <input
+                type="text"
+                name="username"
+                [(ngModel)]="loginRequest.username"
+                placeholder="Enter Username"
+                required
+                #username="ngModel">
+
+        </div>
+
+        <small
+            class="error"
+            *ngIf="username.invalid && username.touched">
+
+            Username is required
+
+        </small>
+
+    </div>
+
+    <!-- Password -->
+
+    <div class="input-group">
+
+        <label>Password</label>
+
+        <div class="input-box">
+
+            <i class="bi bi-lock-fill"></i>
+
+            <input
+                type="password"
+                name="password"
+                [(ngModel)]="loginRequest.password"
+                placeholder="Enter Password"
+                required
+                #password="ngModel">
+
+        </div>
+
+        <small
+            class="error"
+            *ngIf="password.invalid && password.touched">
+
+            Password is required
+
+        </small>
+
+    </div>
+
+    <div class="forgot">
+
+        <a href="#">Forgot Password?</a>
+
+    </div>
+
+    <button
+        class="login-btn"
+        type="submit"
+        >
+
+        Login
+
+    </button>
+
+</form>

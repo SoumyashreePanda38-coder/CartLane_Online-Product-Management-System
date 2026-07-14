@@ -1,0 +1,218 @@
+<div class="product-page">
+
+    <!-- ============================= -->
+    <!-- Header -->
+    <!-- ============================= -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>📦 Product Management</h2>
+
+            <p>
+                Manage all your products, pricing and categories from one place.
+            </p>
+
+        </div>
+
+        <button class="add-btn" routerLink="/admin/products/add">
+
+            <i class="bi bi-plus-circle-fill"></i>
+
+            Add Product
+
+        </button>
+
+    </div>
+
+    <!-- ============================= -->
+    <!-- Search -->
+    <!-- ============================= -->
+
+    <div class="toolbar">
+
+        <div class="search-box">
+
+            <i class="bi bi-search"></i>
+
+            <input type="text" placeholder="Search Product..." [(ngModel)]="searchKeyword" (keyup)="searchProducts()">
+
+        </div>
+
+    </div>
+
+    <!-- ============================= -->
+    <!-- Product Table -->
+    <!-- ============================= -->
+
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Image</th>  
+
+                    <th>Product Name</th>
+
+                    <th>Description</th>
+
+                    <th>Category</th>
+
+                    <th>Quantity</th>
+
+                    <th>Price</th>
+
+                    <th>GST</th>
+
+                    <th>Created At</th>
+
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let product of products">
+
+                    <td>
+
+                        {{product.id}}
+
+                    </td>
+                    <td>
+
+                        <img [src]="product.imageUrl" class="product-image" alt="{{product.productName}}">
+
+                    </td>
+                    <td>
+
+                        <div class="product-info">
+
+                            <div class="product-icon">
+
+                                <i class="bi bi-box-seam"></i>
+
+                            </div>
+
+                            <span>
+
+                                {{product.productName}}
+
+                            </span>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+
+                        {{product.description}}
+
+                    </td>
+
+                    <td>
+
+                        <span class="category-badge">
+
+                            {{product.categoryName}}
+
+                        </span>
+
+                    </td>
+                    <td>{{ product.quantity }}</td>
+                    <td>
+
+                        ₹ {{product.price}}
+
+                    </td>
+
+                    <td>
+
+                        <span class="gst-badge">
+
+                            {{product.gst}} %
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        {{product.createdAt | date:'dd-MM-yyyy'}}
+
+                    </td>
+
+                    <td>
+
+                        <button class="edit-btn" [routerLink]="['/admin/products/edit', product.id]">
+
+                            <i class="bi bi-pencil-square"></i>
+
+                        </button>
+
+                        <button class="delete-btn" (click)="deleteProduct(product.id)">
+
+                            <i class="bi bi-trash-fill"></i>
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <!-- ============================= -->
+        <!-- Empty Data -->
+        <!-- ============================= -->
+
+        <div class="no-data" *ngIf="products.length==0">
+
+            <i class="bi bi-inbox"></i>
+
+            <h3>No Products Found</h3>
+
+            <p>
+
+                Click on "Add Product" to create your first product.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ============================= -->
+    <!-- Pagination -->
+    <!-- ============================= -->
+    <div class="pagination">
+
+        <button (click)="previousPage()" [disabled]="currentPage==0">
+
+            Previous
+
+        </button>
+
+        <span>
+
+            Page {{currentPage+1}}
+
+        </span>
+
+        <button (click)="nextPage()" [disabled]="currentPage>=totalPages-1">
+
+            Next
+
+        </button>
+
+    </div>

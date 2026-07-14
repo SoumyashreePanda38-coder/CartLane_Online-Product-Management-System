@@ -1,0 +1,107 @@
+<div class="stock-container">
+
+    <!-- Header -->
+    <div class="page-header">
+
+        <div>
+            <h2>{{ isEditMode ? 'Update Stock' : 'Add Stock' }}</h2>
+            <p>Manage product inventory</p>
+        </div>
+
+    </div>
+
+    <!-- Form Card -->
+
+    <div class="card">
+
+        <form #stockForm="ngForm"
+              (ngSubmit)="saveStock()">
+
+            <!-- Product ID -->
+
+            <div class="form-group">
+
+                <label>Product ID</label>
+
+                <input
+                    type="number"
+                    name="id"
+                    [(ngModel)]="stockRequest.id"
+                    required
+                    placeholder="Enter Product ID">
+
+            </div>
+
+            <!-- Quantity -->
+
+            <div class="form-group">
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    name="quantity"
+                    [(ngModel)]="stockRequest.quantity"
+                    required
+                    min="0"
+                    placeholder="Enter Quantity">
+
+            </div>
+
+            <!-- Action -->
+
+            <div class="form-group">
+
+                <label>Stock Action</label>
+
+                <select
+                    name="action"
+                    [(ngModel)]="stockRequest.action"
+                    required>
+
+                    <option value="">Select Action</option>
+
+                    <option value="STOCK_IN">
+                        STOCK IN
+                    </option>
+
+                    <option value="STOCK_OUT">
+                        STOCK OUT
+                    </option>
+
+                    <option value="UPDATE">
+                        UPDATE
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="button-group">
+
+                <button
+                    type="submit"
+                    class="btn btn-save">
+
+                    {{ isEditMode ? 'Update Stock' : 'Add Stock' }}
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-cancel"
+                    (click)="goBack()">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

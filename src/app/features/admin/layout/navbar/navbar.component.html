@@ -1,0 +1,219 @@
+<nav class="navbar">
+
+    <!-- Left -->
+    <div class="navbar-left">
+
+        <div class="title-section">
+
+            <h2 class="page-title">
+                Admin Dashboard
+            </h2>
+
+            <p class="welcome-text">
+
+                Welcome back,
+
+                <strong>{{adminName}}</strong>
+
+                👋
+
+            </p>
+
+        </div>
+
+        <div class="search-box">
+
+            <i class="bi bi-search"></i>
+
+            <input type="text" placeholder="Search products, customers, orders...">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Right -->
+
+    <div class="navbar-right">
+
+        <!-- Date -->
+
+        <div class="date">
+
+            <i class="bi bi-calendar-event"></i>
+
+            <span>
+
+                {{today | date:'dd MMM yyyy'}}
+
+            </span>
+
+        </div>
+
+
+
+        <!-- Notification -->
+
+        <div class="notification-wrapper">
+
+            <div class="icon" (click)="toggleNotifications()">
+
+                <i class="bi bi-bell-fill"></i>
+
+                <span class="badge" *ngIf="unreadCount>0">
+
+                    {{unreadCount}}
+
+                </span>
+
+            </div>
+
+            <!-- Notification Dropdown -->
+
+            <div class="notification-dropdown" *ngIf="showNotifications">
+
+                <div class="dropdown-header">
+
+                    <h4>
+
+                        Notifications
+
+                    </h4>
+
+                    <span>
+
+                        {{unreadCount}} New
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="loading" *ngIf="loading">
+
+                    Loading Notifications...
+
+                </div>
+
+
+
+                <div class="empty" *ngIf="!loading && notifications.length==0">
+
+                    <i class="bi bi-bell-slash"></i>
+
+                    <p>
+
+                        No Notifications
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="notification-item" *ngFor="let notification of notifications"
+                    [class.unread]="!notification.isRead" (click)="openNotification(notification)">
+
+                    <div class="notification-icon">
+
+                        <i class="bi" [ngClass]="{
+
+                            'bi-cart-fill':notification.type=='ORDER',
+
+                            'bi-credit-card-fill':notification.type=='PAYMENT',
+
+                            'bi-truck':notification.type=='DELIVERY',
+
+                            'bi-box-seam':notification.type=='STOCK',
+
+                            'bi-info-circle-fill':notification.type=='SYSTEM'
+
+                            }">
+
+                        </i>
+
+                    </div>
+
+
+
+                    <div class="notification-content">
+
+                        <h5>
+
+                            {{notification.title}}
+
+                        </h5>
+
+                        <p>
+
+                            {{notification.message}}
+
+                        </p>
+
+                        <small>
+
+                            {{notification.createdAt | date:'dd MMM yyyy, hh:mm a'}}
+
+                        </small>
+
+                    </div>
+
+
+
+                    <div class="new-dot" *ngIf="!notification.isRead">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Messages -->
+
+        <div class="icon">
+
+            <i class="bi bi-envelope-fill"></i>
+
+            <span class="badge">
+
+                2
+
+            </span>
+
+        </div>
+
+
+
+        <!-- Profile -->
+
+        <div class="profile">
+
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Admin">
+
+            <div>
+
+                <h4>
+
+                    {{adminName}}
+
+                </h4>
+
+                <small>
+
+                    Administrator
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>

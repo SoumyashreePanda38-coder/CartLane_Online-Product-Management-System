@@ -1,0 +1,156 @@
+<div class="product-container">
+
+    <!-- Header -->
+    <div class="page-header">
+
+        <div>
+            <h2>{{ isEditMode ? 'Update Product' : 'Add New Product' }}</h2>
+            <p>Create and manage products for your business.</p>
+        </div>
+
+    </div>
+
+    <!-- Form Card -->
+    <div class="form-card">
+
+        <form (ngSubmit)="saveProduct()">
+
+            <div class="form-grid">
+
+                <!-- Product Name -->
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input
+                        type="text"
+                        [(ngModel)]="product.productName"
+                        name="productName"
+                        placeholder="Enter product name"
+                        required>
+                </div>
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label>Category</label>
+
+                    <select
+                        [(ngModel)]="product.categoryId"
+                        name="categoryId"
+                        required>
+
+                        <option value="">Select Category</option>
+
+                        <option
+                            *ngFor="let category of categories"
+                            [value]="category.id">
+
+                            {{ category.categoryName }}
+
+                        </option>
+
+                    </select>
+                </div>
+
+                <!-- Quantity -->
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input
+                        type="number"
+                        [(ngModel)]="product.quantity"
+                        name="quantity"
+                        placeholder="Enter available quantity"
+                        min="1"
+                        required>
+                </div>
+
+                <!-- Price -->
+                <div class="form-group">
+                    <label>Price (₹)</label>
+                    <input
+                        type="number"
+                        [(ngModel)]="product.price"
+                        name="price"
+                        placeholder="Enter price"
+                        required>
+                </div>
+
+                <!-- GST -->
+                <div class="form-group">
+                    <label>GST (%)</label>
+                    <input
+                        type="number"
+                        [(ngModel)]="product.gst"
+                        name="gst"
+                        placeholder="Enter GST"
+                        required>
+                </div>
+
+                <!-- Image URL -->
+                <div class="form-group full-width">
+
+                    <label>Product Image URL</label>
+
+                    <input
+                        type="text"
+                        [(ngModel)]="product.imageUrl"
+                        name="imageUrl"
+                        placeholder="https://example.com/image.jpg">
+
+                </div>
+
+            </div>
+
+            <!-- Image Preview -->
+            <div
+                class="image-preview"
+                *ngIf="product.imageUrl">
+
+                <label>Image Preview</label>
+
+                <img
+                    [src]="product.imageUrl"
+                    alt="Product Image">
+
+            </div>
+
+            <!-- Description -->
+            <div class="form-group full-width">
+
+                <label>Description</label>
+
+                <textarea
+                    rows="5"
+                    [(ngModel)]="product.description"
+                    name="description"
+                    placeholder="Enter product description">
+
+                </textarea>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+
+                <button
+                    type="submit"
+                    class="save-btn">
+
+                    {{ isEditMode ? 'Update Product' : 'Save Product' }}
+
+                </button>
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    routerLink="/admin/products">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

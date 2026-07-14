@@ -1,0 +1,111 @@
+<div class="orders-container">
+
+    <div class="page-header">
+
+        <h2>Order Management</h2>
+
+        <p>View all customer orders.</p>
+
+    </div>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            placeholder="Search Order ID / Customer"
+            [(ngModel)]="searchKeyword"
+            (keyup)="searchOrders()">
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Order ID</th>
+
+                <th>Customer</th>
+
+                <th>Date</th>
+
+                <th>Total</th>
+
+                <th>Payment</th>
+
+                <th>Status</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngIf="loading">
+
+                <td colspan="7">
+
+                    Loading...
+
+                </td>
+
+            </tr>
+
+            <tr
+                *ngIf="!loading && filteredOrders.length==0">
+
+                <td colspan="7">
+
+                    No Orders Found
+
+                </td>
+
+            </tr>
+
+            <tr
+                *ngFor="let order of filteredOrders">
+
+                <td>#{{order.orderId}}</td>
+
+                <td>{{order.customerName}}</td>
+
+                <td>{{order.orderDate | date:'dd-MM-yyyy hh:mm a'}}</td>
+
+                <td>₹ {{order.totalAmount}}</td>
+
+                <td>{{order.paymentMethod}}</td>
+
+                <td>
+
+                    <span
+                        class="status"
+                        [ngClass]="order.status.toLowerCase()">
+
+                        {{order.status}}
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    <button
+                        class="view-btn"
+                        (click)="viewOrder(order.orderId)">
+
+                        View
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

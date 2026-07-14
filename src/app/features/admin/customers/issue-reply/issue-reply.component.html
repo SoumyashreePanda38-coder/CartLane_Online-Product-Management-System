@@ -1,0 +1,173 @@
+<div class="reply-container">
+
+    <!-- Header -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>Issue Reply</h2>
+
+            <p>View customer issue and reply to it.</p>
+
+        </div>
+
+        <button
+            class="back-btn"
+            (click)="goBack()">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+    <!-- Loading -->
+
+    <div
+        class="loading-card"
+        *ngIf="loading">
+
+        Loading Issue...
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div *ngIf="!loading">
+
+        <!-- Issue Details -->
+
+        <div class="card">
+
+            <h3>Issue Details</h3>
+
+            <div class="issue-info">
+
+                <p>
+
+                    <strong>Issue ID :</strong>
+
+                    {{issue.issueId}}
+
+                </p>
+
+                <p>
+
+                    <strong>Subject :</strong>
+
+                    {{issue.subject}}
+
+                </p>
+
+                <p>
+
+                    <strong>Description :</strong>
+
+                    {{issue.description}}
+
+                </p>
+
+                <p>
+
+                    <strong>Status :</strong>
+
+                    <span
+                        class="status-badge"
+                        [ngClass]="{
+
+                        'open': issue.status==='OPEN',
+
+                        'resolved': issue.status==='RESOLVED',
+
+                        'closed': issue.status==='CLOSED'
+
+                    }">
+
+                        {{issue.status}}
+
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Conversation -->
+
+        <div class="card">
+
+            <h3>Conversation</h3>
+
+            <div
+                class="no-reply"
+                *ngIf="replies.length===0">
+
+                No replies yet.
+
+            </div>
+
+            <div
+                *ngFor="let reply of replies"
+                class="reply-box">
+
+                <div class="reply-header">
+
+                    <strong>{{reply.repliedBy}}</strong>
+
+                    <span>
+
+                        {{reply.replyDate | date:'dd-MM-yyyy hh:mm a'}}
+
+                    </span>
+
+                </div>
+
+                <div class="reply-message">
+
+                    {{reply.replyMessage}}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Reply Form -->
+
+        <div class="card">
+
+            <h3>Send Reply</h3>
+
+            <textarea
+
+                rows="6"
+
+                placeholder="Type your reply here..."
+
+                [(ngModel)]="replyRequest.replyMessage"
+
+                name="replyMessage">
+
+            </textarea>
+
+            <div class="button-group">
+
+                <button
+
+                    class="send-btn"
+
+                    (click)="sendReply()">
+
+                    Send Reply
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,181 @@
+<div class="details-page">
+
+    <!-- ===================================== -->
+    <!-- Header -->
+    <!-- ===================================== -->
+
+    <section class="details-header">
+
+        <div>
+
+            <h1>
+
+                <i class="bi bi-receipt"></i>
+
+                Order Details
+
+            </h1>
+
+            <p>
+
+                View complete information about your order.
+
+            </p>
+
+        </div>
+
+        <button
+            class="back-btn"
+            routerLink="/customer/orders">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back to Orders
+
+        </button>
+
+    </section>
+
+
+
+    <!-- ===================================== -->
+    <!-- Order Summary -->
+    <!-- ===================================== -->
+
+    <div class="summary-card">
+
+        <div class="summary-row">
+
+            <span>Order ID</span>
+
+            <strong>#{{order.orderId}}</strong>
+
+        </div>
+
+        <div class="summary-row">
+
+            <span>Order Date</span>
+
+            <strong>{{order.orderDate | date:'medium'}}</strong>
+
+        </div>
+
+        <div class="summary-row">
+
+            <span>Status</span>
+
+            <span class="status">
+
+                {{order.status}}
+
+            </span>
+
+        </div>
+
+        <div class="summary-row">
+
+            <span>Payment Method</span>
+
+            <strong>{{order.paymentMethod}}</strong>
+
+        </div>
+
+        <div class="summary-row">
+
+            <span>Total Amount</span>
+
+            <strong class="price">
+
+                ₹{{order.totalAmount}}
+
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- Shipping Address -->
+    <!-- ===================================== -->
+
+    <div class="address-card">
+
+        <h2>
+
+            <i class="bi bi-geo-alt-fill"></i>
+
+            Delivery Address
+
+        </h2>
+
+        <p>
+
+            {{order.deliveryAddress}}
+
+        </p>
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- Ordered Products -->
+    <!-- ===================================== -->
+
+    <div class="products-card">
+
+        <h2>
+
+            <i class="bi bi-box-seam"></i>
+
+            Ordered Products
+
+        </h2>
+
+        <div
+            class="product-item"
+            *ngFor="let item of orderItems">
+
+            <div class="product-left">
+
+                <img
+                    src="assets/images/product-placeholder.png"
+                    alt="Product">
+
+                <div>
+
+                    <h4>
+
+                        {{item.productName}}
+
+                    </h4>
+
+                    <p>
+
+                        Quantity : {{item.quantity}}
+
+                    </p>
+
+                    <p>
+
+                        Unit Price : ₹{{item.unitPrice}}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="product-total">
+
+                ₹{{item.totalPrice}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

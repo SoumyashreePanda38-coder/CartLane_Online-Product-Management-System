@@ -1,0 +1,188 @@
+<div class="customer-orders-container">
+
+    <!-- ========================= -->
+    <!-- Header -->
+    <!-- ========================= -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>Customer Order History</h2>
+
+            <p>View all orders placed by this customer.</p>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Loading -->
+    <!-- ========================= -->
+
+    <div
+        *ngIf="loading"
+        class="loading-card">
+
+        Loading Orders...
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- No Orders -->
+    <!-- ========================= -->
+
+    <div
+        *ngIf="!loading && orders.length==0"
+        class="empty-card">
+
+        <h3>No Orders Found</h3>
+
+        <p>This customer has not placed any orders yet.</p>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Orders -->
+    <!-- ========================= -->
+
+    <div
+        *ngFor="let order of orders"
+        class="order-card">
+
+        <!-- Order Header -->
+
+        <div class="order-header">
+
+            <div>
+
+                <h3>
+
+                    Order #{{order.orderId}}
+
+                </h3>
+
+                <p>
+
+                    {{order.orderDate | date:'dd MMM yyyy hh:mm a'}}
+
+                </p>
+
+            </div>
+
+            <span
+                class="status-badge"
+                [ngClass]="{
+
+                    'pending': order.status=='PENDING',
+
+                    'confirmed': order.status=='CONFIRMED',
+
+                    'shipped': order.status=='SHIPPED',
+
+                    'delivered': order.status=='DELIVERED',
+
+                    'cancelled': order.status=='CANCELLED'
+
+                }">
+
+                {{order.status}}
+
+            </span>
+
+        </div>
+
+        <!-- Order Details -->
+
+        <div class="order-details">
+
+            <div class="detail-item">
+
+                <label>Payment Method</label>
+
+                <span>{{order.paymentMethod}}</span>
+
+            </div>
+
+            <div class="detail-item">
+
+                <label>Total Amount</label>
+
+                <span>₹ {{order.totalAmount}}</span>
+
+            </div>
+
+            <div class="detail-item full-width">
+
+                <label>Delivery Address</label>
+
+                <span>{{order.deliveryAddress}}</span>
+
+            </div>
+
+        </div>
+
+        <!-- Products -->
+
+        <div class="products-section">
+
+            <h4>Ordered Products</h4>
+
+            <table class="product-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Product</th>
+
+                        <th>Quantity</th>
+
+                        <th>Unit Price</th>
+
+                        <th>Total</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr
+                        *ngFor="let item of orderItems[order.orderId]">
+
+                        <td>
+
+                            {{item.productName}}
+
+                        </td>
+
+                        <td>
+
+                            {{item.quantity}}
+
+                        </td>
+
+                        <td>
+
+                            ₹ {{item.unitPrice}}
+
+                        </td>
+
+                        <td>
+
+                            ₹ {{item.totalPrice}}
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

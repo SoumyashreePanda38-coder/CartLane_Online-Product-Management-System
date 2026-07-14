@@ -1,0 +1,124 @@
+<div class="customer-container">
+
+    <!-- Page Header -->
+    <div class="page-header">
+
+        <div>
+            <h2>Customer Management</h2>
+            <p>View and manage all registered customers.</p>
+        </div>
+
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-section">
+
+        <input type="text" placeholder="Search customer by name, email or phone..." [(ngModel)]="searchKeyword"
+            (keyup)="searchCustomer()">
+
+    </div>
+
+    <!-- Customer Table -->
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Name</th>
+
+                    <th>Username</th>
+
+                    <th>Email</th>
+
+                    <th>Phone</th>
+
+                    <th>Joined Date</th>
+
+                    <th>Status</th>
+
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <!-- Loading -->
+                <tr *ngIf="loading">
+
+                    <td colspan="8" class="text-center">
+
+                        Loading Customers...
+
+                    </td>
+
+                </tr>
+
+                <!-- No Records -->
+                <tr *ngIf="!loading && customers.length === 0">
+
+                    <td colspan="8" class="text-center">
+
+                        No Customers Found
+
+                    </td>
+
+                </tr>
+
+                <!-- Customer List -->
+                <tr *ngFor="let customer of customers">
+
+                    <td>{{customer.customerId}}</td>
+
+                    <td>{{customer.fullName}}</td>
+
+                    <td>{{customer.username}}</td>
+
+                    <td>{{customer.email}}</td>
+
+                    <td>{{customer.phoneNumber}}</td>
+
+                    <td>{{customer.createdAt| date:'dd-MM-yyyy'}}</td>
+
+                    <td>
+
+                        <span class="status-badge" [ngClass]="{
+                         'active': customer.status === 'ACTIVE',
+                         'inactive': customer.status === 'INACTIVE'} 
+                         ">
+                            {{ customer.status }}
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button class="view-btn" (click)="viewCustomer(customer.customerId)">
+
+                            View
+
+                        </button>
+
+                        <button class="delete-btn" (click)="deleteCustomer(customer.customerId)">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

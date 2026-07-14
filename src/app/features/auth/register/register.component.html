@@ -1,0 +1,188 @@
+<form class="register-form" #registerForm="ngForm" (ngSubmit)="register()">
+
+    <h2>Create Account 🚀</h2>
+
+    <p>Join Online Product Management System</p>
+
+    <!-- Full Name -->
+
+    <div class="input-box">
+        <i class="bi bi-person-circle"></i>
+
+        <input
+            type="text"
+            name="fullName"
+            [(ngModel)]="registerRequest.fullName"
+            placeholder="Full Name"
+            required>
+    </div>
+
+    <!-- Username -->
+
+    <div class="input-box">
+        <i class="bi bi-person-fill"></i>
+
+        <input
+            type="text"
+            name="username"
+            [(ngModel)]="registerRequest.username"
+            placeholder="Username"
+            required>
+    </div>
+
+    <!-- Email -->
+
+    <div class="input-box">
+        <i class="bi bi-envelope-fill"></i>
+
+        <input
+            type="email"
+            name="email"
+            [(ngModel)]="registerRequest.email"
+            placeholder="Email Address"
+            required>
+    </div>
+
+    <!-- Phone -->
+
+    <div class="input-box">
+        <i class="bi bi-telephone-fill"></i>
+
+        <input
+            type="text"
+            name="phoneNumber"
+            [(ngModel)]="registerRequest.phoneNumber"
+            placeholder="Phone Number"
+            required>
+    </div>
+
+   <!-- Password -->
+
+<div class="input-box">
+    <i class="bi bi-lock-fill"></i>
+
+    <input
+        type="password"
+        name="password"
+        [(ngModel)]="registerRequest.password"
+        (input)="checkPassword()"
+        placeholder="Password"
+        required>
+</div>
+
+
+<!-- Password Criteria -->
+
+<div class="password-rules"
+     *ngIf="registerRequest.password">
+
+
+    <p [class.valid]="passwordLength">
+        <i class="bi"
+        [ngClass]="passwordLength 
+        ? 'bi-check-circle-fill' 
+        : 'bi-x-circle-fill'">
+        </i>
+
+        Minimum 8 characters
+    </p>
+
+
+
+    <p [class.valid]="hasUppercase">
+        <i class="bi"
+        [ngClass]="hasUppercase 
+        ? 'bi-check-circle-fill' 
+        : 'bi-x-circle-fill'">
+        </i>
+
+        At least one uppercase letter
+    </p>
+
+
+
+    <p [class.valid]="hasNumber">
+        <i class="bi"
+        [ngClass]="hasNumber 
+        ? 'bi-check-circle-fill' 
+        : 'bi-x-circle-fill'">
+        </i>
+
+        At least one digit
+    </p>
+
+
+
+    <p [class.valid]="hasSpecial">
+        <i class="bi"
+        [ngClass]="hasSpecial 
+        ? 'bi-check-circle-fill' 
+        : 'bi-x-circle-fill'">
+        </i>
+
+        At least one special character
+    </p>
+
+
+</div>
+
+    <!-- Confirm Password -->
+
+    <div class="input-box">
+        <i class="bi bi-shield-lock-fill"></i>
+
+        <input
+            type="password"
+            name="confirmPassword"
+            [(ngModel)]="registerRequest.confirmPassword"
+            placeholder="Confirm Password"
+            required>
+    </div>
+
+    <!-- Role -->
+
+    <h4 class="role-heading">
+        Select Your Role
+    </h4>
+
+    <div class="role-container">
+
+        <div
+            class="role-card"
+            [class.active]="registerRequest.role=='CUSTOMER'"
+            (click)="registerRequest.role='CUSTOMER'">
+
+            <i class="bi bi-cart-check"></i>
+
+            <h3>Customer</h3>
+
+            <span>Browse & Purchase Products</span>
+
+        </div>
+
+        <div
+            class="role-card"
+            [class.active]="registerRequest.role=='ADMIN'"
+            (click)="registerRequest.role='ADMIN'">
+
+            <i class="bi bi-shield-lock-fill"></i>
+
+            <h3>Admin</h3>
+
+            <span>Manage Products & Orders</span>
+
+        </div>
+
+    </div>
+
+    <button
+        class="register-btn"
+        [disabled]="registerForm.invalid">
+
+        <i class="bi bi-person-plus-fill"></i>
+
+        Create Account
+
+    </button>
+
+</form>

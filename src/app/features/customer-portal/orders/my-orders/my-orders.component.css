@@ -1,0 +1,636 @@
+/* =======================================================
+   MY ORDERS PAGE
+======================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.orders-page{
+
+    background:#f5f7fb;
+    min-height:100vh;
+    padding:35px;
+
+}
+
+
+
+/* =====================================
+   Header
+===================================== */
+
+.orders-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.orders-header h1{
+
+    color:#1e3a8a;
+    font-size:34px;
+    font-weight:700;
+
+}
+
+.orders-header p{
+
+    color:#6b7280;
+    margin-top:8px;
+    font-size:15px;
+
+}
+
+.orders-header i{
+
+    color:#ff7b00;
+    margin-right:12px;
+
+}
+
+
+
+/* =====================================
+   Loading
+===================================== */
+
+.loading{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    margin-top:100px;
+
+}
+
+.loading h3{
+
+    margin-top:20px;
+    color:#1e3a8a;
+
+}
+
+
+
+/* =====================================
+   Empty Orders
+===================================== */
+
+.empty-orders{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:80px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.empty-orders i{
+
+    font-size:85px;
+
+    color:#ff9800;
+
+}
+
+.empty-orders h2{
+
+    margin-top:20px;
+
+    color:#1e3a8a;
+
+}
+
+.empty-orders p{
+
+    color:#666;
+
+    margin-top:10px;
+
+}
+
+.shop-btn{
+
+    margin-top:30px;
+
+    border:none;
+
+    background:#ff7b00;
+
+    color:white;
+
+    padding:14px 35px;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.shop-btn:hover{
+
+    background:#ff9800;
+
+}
+
+
+
+/* =====================================
+   Orders Container
+===================================== */
+
+.orders-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+
+
+/* =====================================
+   Order Card
+===================================== */
+
+.order-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.order-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+}
+
+
+
+/* =====================================
+   Order Header
+===================================== */
+
+.order-top{
+
+    background:linear-gradient(135deg,#1d4ed8,#2563eb);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 30px;
+
+}
+
+.order-top h3{
+
+    font-size:22px;
+
+    margin-bottom:5px;
+
+}
+
+.order-top p{
+
+    opacity:.9;
+
+}
+
+
+
+/* =====================================
+   Status Badge
+===================================== */
+
+.status-badge{
+
+    padding:10px 22px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+}
+
+.status-badge.PENDING{
+
+    background:#ff9800;
+
+}
+
+.status-badge.CONFIRMED{
+
+    background:#2196f3;
+
+}
+
+.status-badge.PACKED{
+
+    background:#8b5cf6;
+
+}
+
+.status-badge.SHIPPED{
+
+    background:#0ea5e9;
+
+}
+
+.status-badge.OUT_FOR_DELIVERY{
+
+    background:#fb8c00;
+
+}
+
+.status-badge.DELIVERED{
+
+    background:#16a34a;
+
+}
+
+.status-badge.CANCELLED{
+
+    background:#dc2626;
+
+}
+
+
+
+/* =====================================
+   Body
+===================================== */
+
+.order-body{
+
+    display:flex;
+
+    gap:35px;
+
+    padding:30px;
+
+}
+
+
+
+/* =====================================
+   Image
+===================================== */
+
+.product-image{
+
+    width:140px;
+
+    height:140px;
+
+    background:#eef4ff;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+
+
+/* =====================================
+   Product List
+===================================== */
+
+.order-info{
+
+    flex:1;
+
+}
+
+.order-info h2{
+
+    color:#ff7b00;
+
+    margin-bottom:18px;
+
+    font-size:28px;
+
+}
+
+.order-info p{
+
+    margin:8px 0;
+
+    color:#555;
+
+    line-height:24px;
+
+}
+
+.address{
+
+    color:#444;
+
+}
+
+
+
+/* =====================================
+   Ordered Products
+===================================== */
+
+.products-section{
+
+    margin-top:20px;
+
+    border-top:1px solid #eee;
+
+    padding-top:20px;
+
+}
+
+.products-section h3{
+
+    color:#1e3a8a;
+
+    margin-bottom:18px;
+
+}
+
+.product-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 18px;
+
+    margin-bottom:12px;
+
+    border-radius:12px;
+
+    background:#f8fbff;
+
+    border:1px solid #edf2ff;
+
+}
+
+.product-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.product-left img{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:10px;
+
+    object-fit:cover;
+
+    background:white;
+
+}
+
+.product-details h4{
+
+    color:#1e3a8a;
+
+    margin-bottom:6px;
+
+}
+
+.product-details p{
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+.product-price{
+
+    color:#ff7b00;
+
+    font-size:20px;
+
+    font-weight:700;
+
+}
+
+
+
+/* =====================================
+   Footer
+===================================== */
+
+.order-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:18px;
+
+    padding:25px 30px;
+
+    border-top:1px solid #eee;
+
+}
+
+
+
+/* =====================================
+   Buttons
+===================================== */
+
+.details-btn{
+
+    background:white;
+
+    color:#2563eb;
+
+    border:2px solid #2563eb;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.details-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+.track-btn{
+
+    background:#ff7b00;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 28px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.track-btn:hover{
+
+    background:#ff9800;
+
+}
+
+.details-btn i,
+.track-btn i{
+
+    margin-right:8px;
+
+}
+
+
+
+/* =====================================
+   Responsive
+===================================== */
+
+@media(max-width:992px){
+
+    .order-body{
+
+        flex-direction:column;
+
+    }
+
+    .product-image{
+
+        width:100%;
+
+        height:250px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .orders-page{
+
+        padding:18px;
+
+    }
+
+    .orders-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+    .order-top{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        align-items:flex-start;
+
+    }
+
+    .order-footer{
+
+        flex-direction:column;
+
+    }
+
+    .details-btn,
+    .track-btn{
+
+        width:100%;
+
+    }
+
+}

@@ -1,0 +1,214 @@
+<div class="dashboard-layout">
+
+    <!-- Fixed Sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <!-- Right Side -->
+    <div class="dashboard-content">
+
+        <!-- Navbar -->
+        <app-navbar></app-navbar>
+
+        <!-- Dashboard Body -->
+        <div class="dashboard-body">
+
+            <!-- Welcome Banner -->
+            <section class="welcome-card">
+
+                <div class="welcome-text">
+
+                    <h1>Welcome Back, Admin 👋</h1>
+
+                    <p>
+                        Manage your products, customers, orders and monitor your
+                        business from one powerful dashboard.
+                    </p>
+
+                </div>
+
+                <button routerLink="/admin/reports">
+                    View Reports
+                </button>
+
+            </section>
+
+
+            <!-- Statistics -->
+
+            <section class="cards">
+
+                <div class="card products">
+
+                    <div class="icon">
+                        <i class="bi bi-box-seam-fill"></i>
+                    </div>
+
+                    <div>
+
+                        <h5>Total Products</h5>
+
+                        <h2>{{dashboard.totalProducts}}</h2>
+
+                        <small>Available Products</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card customers">
+
+                    <div class="icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+
+                    <div>
+
+                        <h5>Total Customers</h5>
+
+                        <h2>{{dashboard.totalCustomers}}</h2>
+
+                        <small>Registered Customers</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card orders">
+
+                    <div class="icon">
+                        <i class="bi bi-cart-check-fill"></i>
+                    </div>
+
+                    <div>
+
+                        <h5>Total Orders</h5>
+
+                        <h2>{{dashboard.totalOrders}}</h2>
+
+                        <small>Orders Received</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card revenue">
+
+                    <div class="icon">
+                        <i class="bi bi-currency-rupee"></i>
+                    </div>
+
+                    <div>
+
+                        <h5>Total Revenue</h5>
+
+                        <h2>₹ {{dashboard.totalRevenue}}</h2>
+
+                        <small>Total Revenue</small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Quick Actions -->
+
+            <section class="quick-actions">
+
+                <h2>Quick Actions</h2>
+
+                <div class="quick-grid">
+
+                    <a routerLink="/admin/categories">
+                        <i class="bi bi-tags-fill"></i>
+                        Categories
+                    </a>
+
+                    <a routerLink="/admin/products">
+                        <i class="bi bi-box-seam-fill"></i>
+                        Products
+                    </a>
+
+                    <a routerLink="/admin/customers">
+                        <i class="bi bi-people-fill"></i>
+                        Customers
+                    </a>
+
+                    <a routerLink="/admin/orders">
+                        <i class="bi bi-cart-fill"></i>
+                        Orders
+                    </a>
+
+                    <a routerLink="/admin/stocks">
+                        <i class="bi bi-bar-chart-fill"></i>
+                        Stock
+                    </a>
+
+                    <a routerLink="/admin/invoice">
+                        <i class="bi bi-receipt"></i>
+                        Invoice
+                    </a>
+
+                    <a routerLink="/admin/reports">
+                        <i class="bi bi-file-earmark-bar-graph-fill"></i>
+                        Reports
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- Business Summary -->
+
+            <section class="summary">
+
+                <h2>Business Summary</h2>
+
+                <div class="summary-grid">
+
+                    <div class="summary-box">
+
+                        <h4>Products</h4>
+
+                        <p>{{dashboard.totalProducts}}</p>
+
+                    </div>
+
+                    <div class="summary-box">
+
+                        <h4>Customers</h4>
+
+                        <p>{{dashboard.totalCustomers}}</p>
+
+                    </div>
+
+                    <div class="summary-box">
+
+                        <h4>Orders</h4>
+
+                        <p>{{dashboard.totalOrders}}</p>
+
+                    </div>
+
+                    <div class="summary-box">
+
+                        <h4>Revenue</h4>
+
+                        <p>₹ {{dashboard.totalRevenue}}</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
