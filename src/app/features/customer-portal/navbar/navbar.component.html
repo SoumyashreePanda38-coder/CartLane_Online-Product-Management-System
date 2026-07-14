@@ -21,15 +21,21 @@
     <div class="search-section">
 
 
-        <input type="text" placeholder="Search products...">
+       
+    <input
+        type="text"
+        [(ngModel)]="searchValue"
+        placeholder="Search products..."
+        (keyup.enter)="searchProducts()">
+
+    <button (click)="searchProducts()">
+        <i class="bi bi-search"></i>
+    </button>
+
+</div>
 
 
-        <button>
-            <i class="bi bi-search"></i>
-        </button>
-
-
-    </div>
+   
 
 
 

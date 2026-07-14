@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/core/services/product.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ProductResponse } from 'src/app/model/product-response';
+import { SearchService } from 'src/app/core/services/search.service';
 import { ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -24,58 +24,59 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-     private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private searchService: SearchService
   ) { }
 
- ngOnInit(): void {
+  ngOnInit(): void {
 
-  const id = localStorage.getItem('customerId');
+    const id = localStorage.getItem('customerId');
 
-  if (id) {
-    this.customerId = Number(id);
-    console.log("Customer ID =", this.customerId);
-  } else {
-    alert("Customer not logged in");
-    return;
-  }
-
-  this.loadProducts();
-}
-  addToCart(product: ProductResponse): void {
-
-  console.log({
-    customerId: this.customerId,
-    productId: product.id,
-    quantity: 1
-  });
-
-  const request = {
-    customerId: this.customerId,
-    productId: product.id,
-    quantity: 1
-  };
-
-  this.cartService.addToCart(request).subscribe({
-
-    next: (response) => {
-
-      console.log("Cart Response =", response);
-
-      alert(product.productName + " added to cart.");
-
-    },
-
-    error: (err) => {
-
-      console.error(err);
-
-      alert("Unable to add product.");
-
+    if (id) {
+      this.customerId = Number(id);
+      console.log("Customer ID =", this.customerId);
+    } else {
+      alert("Customer not logged in");
+      return;
     }
 
-  });
+    this.loadProducts();
+  }
+  addToCart(product: ProductResponse): void {
 
-}
+    console.log({
+      customerId: this.customerId,
+      productId: product.id,
+      quantity: 1
+    });
+
+    const request = {
+      customerId: this.customerId,
+      productId: product.id,
+      quantity: 1
+    };
+
+    this.cartService.addToCart(request).subscribe({
+
+      next: (response) => {
+
+        console.log("Cart Response =", response);
+
+        alert(product.productName + " added to cart.");
+
+      },
+
+      error: (err) => {
+
+        console.error(err);
+
+        alert("Unable to add product.");
+
+      }
+
+    });
+
+  }
 
   get search(): string {
 
@@ -117,6 +118,9 @@ export class ProductListComponent implements OnInit {
 
         this.filteredProducts = response;
 
+        // Start listening to navbar search
+        this.listenSearch();
+
         this.loading = false;
 
       },
@@ -132,4 +136,20 @@ export class ProductListComponent implements OnInit {
     });
 
   }
+  listenSearch(): void {
+
+  this.searchService.searchText$
+    .subscribe({
+
+      next: (text) => {
+
+        this.searchText = text;
+
+        this.filterProducts();
+
+      }
+
+    });
+
+}
 }

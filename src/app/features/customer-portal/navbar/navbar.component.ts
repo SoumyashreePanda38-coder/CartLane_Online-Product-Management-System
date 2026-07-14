@@ -30,14 +30,15 @@ export class NavbarComponent {
 
   // Product search
 
-  searchProducts(){
+  searchProducts() {
 
+  if (!this.searchValue.trim()) {
+    return;
+  }
 
- this.searchService
- .setSearchText(
-   this.searchValue
- );
+  this.searchService.setSearchText(this.searchValue);
 
+  this.router.navigate(['/customer/products']);
 
 }
 
