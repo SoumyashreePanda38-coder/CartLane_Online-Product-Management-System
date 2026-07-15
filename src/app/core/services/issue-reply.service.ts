@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class IssueReplyService {
 
-  private apiUrl = 'http://localhost:8080/api/issue-replies';
+  private apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/issue-replies';
 
   constructor(private http: HttpClient) { }
 

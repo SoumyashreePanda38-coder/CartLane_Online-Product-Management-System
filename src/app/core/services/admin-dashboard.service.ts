@@ -9,8 +9,7 @@ import { AdminDashboardResponse } from 'src/app/model/admin-dashboard-response';
 })
 export class AdminDashboardService {
 
-  private url = 'http://localhost:8080/api/admin/dashboard';
-
+  private url = 'https://cartlane-backend-production-170d.up.railway.app';
   constructor(private http: HttpClient) { }
 
   getDashboard(): Observable<AdminDashboardResponse> {

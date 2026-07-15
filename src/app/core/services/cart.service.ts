@@ -10,7 +10,7 @@ import { CartResponse } from '../../model/cart-response';
 })
 export class CartService {
 
-  private apiUrl = 'http://localhost:8080/api/cart';
+  private  apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/cart';;
 
   constructor(private http: HttpClient) { }
 

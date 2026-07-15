@@ -11,7 +11,7 @@ import { NotificationRequest } from 'src/app/model/notification-request';
 })
 export class NotificationService {
 
-  private apiUrl = 'http://localhost:8080/api/notifications';
+  private apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/notifications';
 
   constructor(private http: HttpClient) { }
 

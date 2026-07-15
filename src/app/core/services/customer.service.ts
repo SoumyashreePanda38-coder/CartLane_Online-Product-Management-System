@@ -13,7 +13,7 @@ import { CustomerResponse } from 'src/app/model/customer-response';
 })
 export class CustomerService {
 
-  private apiUrl = 'http://localhost:8080/api/customers';
+  private apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/customers';
 
   constructor(private http: HttpClient) { }
 

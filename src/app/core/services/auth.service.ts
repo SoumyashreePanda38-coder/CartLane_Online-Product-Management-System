@@ -14,7 +14,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:8080';
+ url = 'https://cartlane-backend-production-170d.up.railway.app';
 
   register(user: RegisterRequest): Observable<string> {
   return this.http.post(this.url + '/api/auth/register', user, {

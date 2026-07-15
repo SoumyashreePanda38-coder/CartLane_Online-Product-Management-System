@@ -11,7 +11,7 @@ import { OrderResponse } from 'src/app/model/order-response';
 })
 export class OrderService {
 
-  private apiUrl = 'http://localhost:8080/api/orders';
+  private apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/orders';
 
   constructor(private http: HttpClient) { }
 

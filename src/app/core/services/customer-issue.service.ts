@@ -10,7 +10,7 @@ import { CustomerIssueResponse } from 'src/app/model/customer-issue-response';
 })
 export class CustomerIssueService {
 
-  private apiUrl = 'http://localhost:8080/api/customer-issues';
+  private apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/customer-issues';
 
   constructor(private http: HttpClient) { }
 

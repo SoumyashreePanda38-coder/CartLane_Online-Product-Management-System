@@ -10,7 +10,7 @@ import { CategoryResponseModel } from 'src/app/model/category-response.model';
 })
 export class CategoryService {
 
-  private apiUrl = 'http://localhost:8080/api/categories';
+  private apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/categories';
 
   constructor(private http: HttpClient) { }
 

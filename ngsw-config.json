@@ -34,8 +34,8 @@
     "name": "api-cache",
 
     "urls": [
-      "http://localhost:8080/api/products/**",
-      "http://localhost:8080/api/categories/**"
+      "https://cartlane-backend-production-170d.up.railway.app/api/products/**",
+      "https://cartlane-backend-production-170d.up.railway.app/api/categories/**"
     ],
 
     "cacheConfig": {

@@ -10,7 +10,7 @@ import { InvoiceResponse } from 'src/app/model/invoice-response';
 })
 export class InvoiceService {
 
-  private apiUrl = 'http://localhost:8080/api/invoices';
+  private apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/invoices';
 
   constructor(
     private http: HttpClient

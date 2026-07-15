@@ -11,7 +11,7 @@ import { StockHistoryResponse } from 'src/app/model/stock-history-response';
 })
 export class StockService {
 
-  private apiUrl = 'http://localhost:8080/api/stocks';
+  private apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/stocks';
 
   constructor(
     private http: HttpClient

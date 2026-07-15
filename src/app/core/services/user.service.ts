@@ -10,7 +10,7 @@ import { UserResponse } from 'src/app/model/user-response';
 })
 export class UserService {
 
-  private url = 'http://localhost:8080';
+  private url = 'https://cartlane-backend-production-170d.up.railway.app';
 
   constructor(private http: HttpClient) { }
 

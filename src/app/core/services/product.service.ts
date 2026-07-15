@@ -11,7 +11,7 @@ import { ProductResponse } from '../../model/product-response';
 export class ProductService {
 
   // Spring Boot Base URL
-  private apiUrl = 'http://localhost:8080/api/products';
+  private apiUrl = 'https://cartlane-backend-production-170d.up.railway.app/api/products';
 
   constructor(private http: HttpClient) { }
 
